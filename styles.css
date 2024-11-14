@@ -11,14 +11,14 @@ body{
     font-family: Arial, sans-serif;
     background-color: hsl(0, 0%, 15%);
     border-radius: 15px;
-    max-width: 500px;
+    max-width: 90vw;
     overflow: hidden;
 }
 
 #display{
     width:100%;
-    padding: 20px;
-    font-size: 5rem;
+    padding: 2vw;
+    font-size: 4vw;
     text-align: left;
     border:none;
     color:white;
@@ -33,15 +33,16 @@ body{
 
 }
 button{
-    width:100px;
-    height:100px;
+    width:20vw;
+    height:20vw;
     border-radius: 50px;
     border:none;
     background-color:hsl(0, 0%, 30%) ;
     color:white;
-    font-size: 3rem;
+    font-size: 2.5vw;
     font-weight: bold;
     cursor: pointer;
+    padding: 10px;
 
 }
 button:hover{
@@ -61,4 +62,29 @@ button:active{
 }
 .operator-btn:action{
     background-color: hsl(35, 100%, 75%);
+}
+@media(max-width:768px){
+    #calculator{
+        max-width:90%;
+        padding:10px;
+    }
+    #display{
+        font-size: 3rem;
+        padding:15px;
+    }
+    button{
+        width:20vw;
+        height:20vw;
+        font-size: 2rem;
+    }
+}
+@media(max-width:480px){
+    #keys{
+        grid-template-columns: repeat(3,1fr);
+        gap:5px;
+    }
+    button{
+        padding: 5px;
+        font-size: 1.5rem;
+    }
 }
