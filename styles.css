@@ -1,13 +1,14 @@
-body{
-    margin:0;
-    display:flex;
+/* General Layout */
+body {
+    margin: 0;
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color:hsl(0, 0%, 95%) ;
-
+    background-color: hsl(0, 0%, 95%);
 }
-#calculator{
+
+#calculator {
     font-family: Arial, sans-serif;
     background-color: hsl(0, 0%, 15%);
     border-radius: 15px;
@@ -15,76 +16,118 @@ body{
     overflow: hidden;
 }
 
-#display{
-    width:100%;
-    padding: 2vw;
-    font-size: 4vw;
-    text-align: left;
-    border:none;
-    color:white;
+#display {
+    width: 100%;
+    padding: 15px;
+    font-size: 2rem;
+    border: none;
+    color: white;
     background-color: hsl(0, 0%, 20%);
+    text-align: left;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
-#keys{
+/* Key Layout */
+#keys {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+}
+
+/* Operators Div */
+#operators {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap:10px;
-    padding:25px;
-
+    grid-template-rows: repeat(5, 1fr); /* Five buttons stacked vertically */
+    gap: 10px;
+    flex: 1;
 }
-button{
-    width:20vw;
-    height:20vw;
-    border-radius: 50px;
-    border:none;
-    background-color:hsl(0, 0%, 30%) ;
-    color:white;
-    font-size: 2.5vw;
+
+/* Numbers Div */
+#numbers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    flex: 4;
+}
+
+/* Button Styles */
+button {
+    width: 100%;
+    aspect-ratio: 1; /* Makes buttons square */
+    border-radius: 50%;
+    border: none;
+    font-size: 1.5rem;
     font-weight: bold;
+    color: white;
+    background-color: hsl(0, 0%, 30%);
     cursor: pointer;
-    padding: 10px;
-
+    transition: background-color 0.2s ease;
 }
-button:hover{
+
+button:hover {
     background-color: hsl(0, 0%, 40%);
 }
 
-button:active{
+button:active {
     background-color: hsl(0, 0%, 50%);
 }
 
-
-.operator-btn{
+/* Operator Button Styles */
+.operator-btn {
     background-color: hsl(35, 100%, 55%);
 }
-.operator-btn:hover{
+
+.operator-btn:hover {
     background-color: hsl(35, 100%, 65%);
 }
-.operator-btn:action{
-    background-color: hsl(35, 100%, 75%);
-}
-@media(max-width:768px){
-    #calculator{
-        max-width:90%;
-        padding:10px;
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #calculator {
+        max-width: 90%;
+        padding: 10px;
     }
-    #display{
-        font-size: 3rem;
-        padding:15px;
-    }
-    button{
-        width:20vw;
-        height:20vw;
-        font-size: 2rem;
-    }
-}
-@media(max-width:480px){
-    #keys{
-        grid-template-columns: repeat(3,1fr);
-        gap:5px;
-    }
-    button{
-        padding: 5px;
+
+    #display {
         font-size: 1.5rem;
+    }
+
+    button {
+        font-size: 1.25rem;
+    }
+
+    #numbers {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    #calculator {
+        max-width: 90%;
+        padding: 10px;
+    }
+
+    #keys {
+        flex-direction: row;
+    }
+
+    #operators {
+        flex-direction: row;
+        gap: 5px;
+        justify-content: space-between;
+    }
+
+    #numbers {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+
+    #display {
+        font-size: 1rem;
     }
 }
